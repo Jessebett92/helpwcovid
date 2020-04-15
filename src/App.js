@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { Router } from "@reach/router";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Home from "./Components/pages/home";
+import ConfTesting from "./Components/questions/conftesting";
+
+export default class App extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      loggedIn: "NOT_LOGGED_IN",
+    };
+  }
+
+  render() {
+    return (
+      <div className="pageWrapper">
+        <Router>
+          <Home path="/" />
+          <ConfTesting path="/questionOne" />
+        </Router>
+      </div>
+    );
+  }
 }
-
-export default App;
